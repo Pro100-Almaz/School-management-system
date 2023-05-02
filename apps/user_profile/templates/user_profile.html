@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content">
+        <div class="container-fluid">
+        
+ 
+         <div class="text-center">
+            <img src="{{user_data.profile_pic.url}}" class="avatar img-thumbnail" name="user_pic" alt="avatar" height=, width="200px">
+            
+          </div></hr><br>
+
+			<!-- <img src="{{user_data.profile_pic.url}}"> -->
+			<p>	First Name : {{user.first_name}}  </p>
+			<p>	Last Name : {{user.last_name}} </p>
+			<p>	Email : {{user.email}} </p>
+			<p>	Birth Date : {{user_data.birth_date}} </p>
+        </div>
+        <a href="{% url 'edit-profile' %}"><button class="btn btn-success" >Редактировать</button></a>
+    </div>
+{% endblock %}

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admin',
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     "apps.staffs",
     "apps.finance",
     "apps.result",
+    "apps.user_profile",
 ]
 
 MIDDLEWARE = [
@@ -149,6 +151,8 @@ SESSION_SAVE_EVERY_REQUEST = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 SESSION_COOKIE_AGE = 10800
+
+AUTH_USER_MODEL = 'user_profile.CustomUser'
 
 
 LOGGING = {
