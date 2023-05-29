@@ -33,6 +33,9 @@ class Instractor(models.Model):
 class Course(models.Model):
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 
 class Outcomes(models.Model):
     name = models.CharField(max_length=500)
@@ -74,13 +77,13 @@ class Document(models.Model):
     lecture_class = models.CharField(max_length=20, choices=LECTURE_CHOICES, default="physical science")
     labaratory_class = models.CharField(max_length=50, choices=LAB_CHOICES, default="physical experiments")
     year_enrollment = models.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2099)])
-    course_name = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course_name = models.CharField(max_length=20)
     instructors = models.ManyToManyField(Instractor)
     # instructor = models.CharField(max_length=50)
-    # prerec_for = models.ManyToManyField(Course)
-    prerequisites = models.ManyToManyField(Course, symmetrical=False, blank=True, related_name='prerec_for')
+    prerec_for = models.ManyToManyField(Course, related_name='course_prerec_for') # symmetrical=False, blank=True)
+    prerequisites = models.ManyToManyField(Course, related_name='course_prerequisites')
     description = models.CharField(max_length=5000)
-    learning_outcomes = models.ManyToManyField(Outcomes)
+    learning_outcomes = models.CharField(max_length=5000)
     
     def __str__(self):
         return "Document"

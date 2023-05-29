@@ -13,5 +13,5 @@ def create_document(request):
     else:
         form = DocumentForm()
     
-    return render(request, 'document_form.html', {'form': form})
+    return render(request, 'document_form.html', {'forms': form})
     

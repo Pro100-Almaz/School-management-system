@@ -12,9 +12,15 @@
 
 <form action="" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
-
-  {{ form.education_format.label_tag }}
-  {{ form.education_format }}
+  
+  {% for form in forms %}
+    <div class="form-group d-flex justify-content-between">
+      <label for="exampleInputEmail1">{{ form.label_tag }}</label>    
+      {{ form }}
+    </div>
+  {% endfor %}
+  
+  {{ form }}
 
   {% if object %}
     <input type="submit" class="btn btn-primary" value="Update Record">
