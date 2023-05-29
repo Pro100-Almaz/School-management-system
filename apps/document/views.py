@@ -14,4 +14,9 @@ def create_document(request):
         form = DocumentForm()
     
     return render(request, 'document_form.html', {'form': form})
+
+def success_document(request):
+    if request.method == 'GET':
+        form = DocumentForm()
+        return render(request, 'success.html', {'form': form})
     
