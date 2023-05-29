@@ -20,7 +20,7 @@ class AcademicSession(models.Model):
     current = models.BooleanField(default=True)
 
     class Meta:
-        ordering = ["-name"]
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
