@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Document Upload Success! {% endblock title %} {% block content %}
+
+<div class="container mt-5">
+  <h3 class="text-center">Your document was added successfully!✅</h3>
+  
+  <p class="text-center mt-4">Thank you for your contribution. Your document is now part of our comprehensive database, accessible and beneficial to all users. We appreciate your continuous efforts to enrich our platform.</p>
+  
+  <div class="d-flex justify-content-center mt-5">
+      <button type="submit" class="btn btn-primary mr-2">
+        Add Another Document!
+      </button>
+
+    <a href="/admin/documents/" class="btn btn-secondary ml-2">Review Your Collection</a>
+  </div>
+
+  <div class="text-center mt-5">
+    <p>Got a minute to spare? Browse through the other exciting documents on our platform.</p>
+  </div>
+</div>
+
+{% endblock content %}
