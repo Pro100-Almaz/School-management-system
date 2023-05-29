@@ -10,10 +10,20 @@
           </div></hr><br>
 
 			<!-- <img src="{{user_data.profile_pic.url}}"> -->
-			<p>	First Name : {{user.first_name}}  </p>
-			<p>	Last Name : {{user.last_name}} </p>
+			<table>
+        <td>
+      <p>	Имя : {{user.first_name}}  </p>
+			<p>	Фамилия : {{user.last_name}} </p>
 			<p>	Email : {{user.email}} </p>
-			<p>	Birth Date : {{user_data.birth_date}} </p>
+			<p>	Дата рождения : {{user_data.birth_date}} </p>
+    </td>
+    <td style="padding-left: 20%;">
+      <p> Должность : преподователь</p>
+      <p> Обрзования : Высшее </p>
+      <p> Период обучения : 2020-2022</p>
+      <p> Подтверждающий документ : диплом магистра</p>
+    </td>
+    </table>
         </div>
         <a href="{% url 'edit-profile' %}"><button class="btn btn-success" >Редактировать</button></a>
     </div>

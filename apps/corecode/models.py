@@ -61,3 +61,14 @@ class StudentClass(models.Model):
 
     def __str__(self):
         return self.name
+
+class DocumentClass(models.Model):
+    name = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = "Документ"
+        verbose_name_plural = "Документы"
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name

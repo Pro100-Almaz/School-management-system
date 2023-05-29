@@ -1,7 +1,42 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %}
-  <p>Dashboard contents and design coming soon.</p>
-  <p> Use the sidebar menu for now!</p>
+  <div class="container py-4">
+
+    <div class="p-5 mb-4 bg-light rounded-3 d-flex justify-content-between">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Общие замечания</h1>
+        <p class="col-md-8 fs-4">Рабочая программа дисциплины (РПД) – нормативный документ, определяющий объем, содержание, порядок изучения и преподавания учебной дисциплины, а также способы контроля результатов ее усвоения, соответствующий требованиям ФГОС ВПО направлений подготовки и учитывающий специфику подготовки студентов по избранному направлению.</p>
+      </div>
+      <img src="{% static 'dist/img/education.png' %}" alt="education image">
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>"РПД" содержит следующие функциональные возможности:</h2>
+          <ul>
+            <li>создание РПД заново;</li>
+            <li>создание РПД с заполнением соответствующих разделов из документа, подготовленного в MS Word;</li>
+            <li>формирование нового РПД на базе ранее разработанного с внесением необходимых изменений;</li>
+            <li>вывод на печать РПД для последующей бумажной технологии (согласования и утверждения);</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2>Создать новый документ</h2>
+          <p>При созданий нового документа, пользователь должен заполнить все нужные поля и подтвердить документ.</p>
+          <a href="{% url 'document_create' %}"><button class="btn btn-outline-secondary" type="button">Создать документ</button></a>
+        </div>
+      </div>
+    </div>
+    
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+      © 2023
+    </footer>
+  </div>
+
 {% endblock content %}

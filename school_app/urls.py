@@ -28,5 +28,6 @@ urlpatterns = [
     path("finance/", include("apps.finance.urls")),
     path("result/", include("apps.result.urls")),
     path("user_profile/", include("apps.user_profile.urls")),
+    path("document/", include("apps.document.urls")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

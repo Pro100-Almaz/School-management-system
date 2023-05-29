@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+  Add new document
+
+{% endblock title %}
+
+
+{% block content %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  {{ form.education_format.label_tag }}
+  {{ form.education_format }}
+
+  {% if object %}
+    <input type="submit" class="btn btn-primary" value="Update Record">
+  {% else %}
+    <input type="submit" class="btn btn-primary" value="Add new document">
+  {% endif %}
+</form>
+
+
+{% endblock content %}

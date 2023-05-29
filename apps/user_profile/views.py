@@ -53,35 +53,36 @@ def user_profile(request):
 @login_required
 def edit_user_profile(request):
     usr = User.objects.get(id=request.user.id)    
-    print(usr)
+    print(request.POST)
     if request.method== "POST":
         form = UserProfileEditForm(request.POST,request.FILES)
         form.actual_user = request.user
         if form.is_valid():
             email = request.POST.get('email')
-            check = User.objects.filter(email=email).exclude(id=pk).exists()
+            check = User.objects.filter(email=email).exclude(id=request.user.id).exists()
             if not check:
-                usr.first_name      = request.POST.get('first_name')               
+                print("I am here")
+                usr.first_name = request.POST.get('first_name')               
                 usr.email = email
                 usr.save()
                 
-                birth_date      = request.POST.get('birth_date')
+                birth_date = request.POST.get('birth_date')
                 if birth_date != '':
                     usr.birth_date = birth_date
                 
-                contact         = request.POST.get('contact')
+                contact = request.POST.get('contact')
                 if contact != '':
                     usr.contact = contact
                      
                 secondary_email = request.POST.get('secondary_email')
                 usr.secondary_email = secondary_email
 
-                gender          = request.POST.get('gender')
+                gender = request.POST.get('gender')
                 if gender != '':
                     usr.gender = gender
                 
                 try:
-                    usr.profile_pic     = request.FILES['profile_pic']
+                    usr.profile_pic = request.FILES['profile_pic']
                 except MultiValueDictKeyError:
                     pass
 
@@ -95,8 +96,10 @@ def edit_user_profile(request):
             form = UserProfileEditForm(request.POST)
     else:
         form = UserProfileEditForm(initial={
-            'first_name':usr.first_name,'email':usr.email,
-            'contact':usr.contact,'last_name':usr.last_name,
+            'first_name':usr.first_name,
+            'email':usr.email,
+            'contact':usr.contact,
+            'last_name':usr.last_name,
             'profile_pic':usr.profile_pic.url,
           })
     return render(request,'edit_user_profile.html', locals())

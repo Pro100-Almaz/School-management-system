@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
+    "django.contrib.postgres",
     "widget_tweaks",
     "apps.corecode",
     "apps.students",
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     "apps.finance",
     "apps.result",
     "apps.user_profile",
+    "apps.document",
 ]
 
 MIDDLEWARE = [
