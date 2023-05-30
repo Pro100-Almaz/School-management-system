@@ -3,7 +3,8 @@
 {% block title %}Утвердители{% endblock title %}
 
 {% block breadcrumb %}
-
+<a class="btn btn-primary" href="{% url 'instructor_create' %}">
+  <i class="fas fa-plus"></i> Новый преподователь</a
 {% endblock breadcrumb %}
 
 {% block content %}
@@ -12,22 +13,19 @@
       <tr>
         <th>№</th>
         <th>ФИО</th>
-        <th>Предмет</th>
-        <th>Семестр</th>
-        <th>Дата</th>
-        <th>Описание</th>
-        <th>Статус</th>
+        <th>Академический уровень</th>
+        <th>Ученая степень</th>
       </tr>
     </thead>
     <tbody>
 
-      {% for staff in object_list %}
-        <tr class='clickable-row' data-href="{% url 'staff-detail' staff.id %}">
+      {% for instructor in instructors %}
+      {% comment %} data-href="{% url 'staff-detail' staff.id %}" {% endcomment %}
+        <tr class='clickable-row'>
           <td>{{ forloop.counter}}</td>
-          <td>{{ staff.surname}} {{staff.firstname }} {{staff.other_name }}</td>
-          <td>{{ staff.get_gender_display}}</td>
-          <td>{{ staff.parent_mobile_number}}</td>
-          <td>{{ staff.get_current_status_display}}</td>
+          <td>{{ instructor.name}} </td>
+          <td>{{ instructor.academic_level}}</td>
+          <td>{{ instructor.academic_degree}}</td>
         </tr>
       {% endfor %}
 

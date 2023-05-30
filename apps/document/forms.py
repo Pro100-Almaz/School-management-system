@@ -1,5 +1,5 @@
 from django import forms
-from .models import Document
+from .models import Document, Instractor
 
 class DocumentForm(forms.ModelForm):
     description = forms.CharField(widget=forms.Textarea(attrs={'cols': 50, 'rows': 5}))
@@ -14,3 +14,8 @@ class DocumentForm(forms.ModelForm):
             'year_enrollment' : 'Year of enrollment',
         }
 
+class InstructorForm(forms.ModelForm):
+    
+    class Meta:
+        model = Instractor
+        fields = ['name', 'academic_level', 'academic_degree']
