@@ -7,6 +7,9 @@ from .forms import DocumentForm
 from .models import Document
 from docx import Document as Doc
 from django.core.files.storage import FileSystemStorage
+<<<<<<< HEAD
+>>>>>>> 580b9f83ec3fd30d0f502201e1016427b395879d
+=======
 >>>>>>> 580b9f83ec3fd30d0f502201e1016427b395879d
 
 
