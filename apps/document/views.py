@@ -1,6 +1,13 @@
 from django.shortcuts import render, redirect
+<<<<<<< HEAD
 from .forms import DocumentForm, InstructorForm
 from .models import Document, Instractor
+=======
+from .forms import DocumentForm
+from .models import Document
+from docx import Document as Doc
+from django.core.files.storage import FileSystemStorage
+>>>>>>> 580b9f83ec3fd30d0f502201e1016427b395879d
 
 
 def create_document(request):
@@ -25,6 +32,22 @@ def success_document(request):
         
         return render(request, 'success.html', {'form': form})
 
+def generate_word_document(request, item_id):
+    data = Document.objects.get(id = item_id)
+
+    doc = Doc()
+
+    doc.add_paragraph("Your data goes here")
+
+    file_name = "example.docx"
+    file_path = f"media/{file_name}"
+
+    fs = FileSystemStorage()
+    with fs.open(file_path, "wb") as file:
+        doc.save(file)
+
+    # Save the document
+    return file_path
     
 def list_document(request):
     if request.method == 'GET':
