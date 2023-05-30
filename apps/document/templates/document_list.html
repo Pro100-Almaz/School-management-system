@@ -5,8 +5,6 @@
 {% block breadcrumb %}
 <a class="btn btn-primary" href="{% url 'document_create' %}"><i
     class="fas fa-plus"></i> Новый документ</a>
-<a class="btn btn-primary" href="{% url 'student-upload' %}"><i
-    class="fas fa-upload"></i> Загруженные документы</a>
 {% endblock breadcrumb %}
 
 {% block content %}
@@ -25,13 +23,13 @@
       <tbody>
 
         {% for document in documents %}
-          <tr class='clickable-row'>
-            <td>{{ forloop.counter}}</td>
-            <td>{{ document.course_name}}</td>
-            <td>{{ document.education_format}}</td>
-            <td>{{ document.instructors}}</td>
-            <td>{{ document.description}}</td>
-            <td>{{ document.year_enrollment}}</td>
+          <tr class='clickable-row' data-href="{% url 'document_view' document.id %}">
+              <td>{{ forloop.counter}}</td>
+              <td>{{ document.course_name}}</td>
+              <td>{{ document.education_format}}</td>
+              <td>{{ document.instructors}}</td>
+              <td>{{ document.description}}</td>
+              <td>{{ document.year_enrollment}}</td> 
           </tr>
         {% endfor %}
 

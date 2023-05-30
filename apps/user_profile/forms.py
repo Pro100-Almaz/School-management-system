@@ -49,5 +49,5 @@ class UserProfileEditForm(forms.Form):
     secondary_email = forms.EmailField(label = 'Secondary Email ',max_length=80,widget=forms.TextInput(attrs={'class' : 'form-control'}),required=False,help_text='Required. Inform a valid email address.')
     gender          = forms.ChoiceField(label='', choices=SEX, widget=forms.Select(attrs={'class':'form-control'}))
     birth_date      = forms.DateField(label = 'Birth Date* ', required=False,widget=forms.TextInput(attrs={'class':"form-control"}))        
-    # profile_pic     = forms.FileField(label="Image",widget=forms.ClearableFileInput(attrs={'class':"upload-btns-wrapper btns",'style': 'margin-top: 7px;'}),required=False)
-    profile_pic     = forms.FileField()
+    profile_pic     = forms.FileField(label="Image",widget=forms.ClearableFileInput(attrs={'class':"upload-btns-wrapper btns",'style': 'margin-top: 7px;'}),required=False)
+    # profile_pic     = forms.FileField()

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+  Document view
+
+{% endblock title %}
+
+{% block content %}
+
+    {{ data.course_name }}
+
+    <a href="/media/syllabus.docx" download>Download</a>
+
+{% endblock content %}

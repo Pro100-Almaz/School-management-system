@@ -30,7 +30,7 @@ class Instractor(models.Model):
     academic_degree = models.CharField(max_length=50, choices=ACADEMIC_DEGREE, default="Professor")
 
     def __str__(self):
-        return self.name + " " + self.academic_level
+        return self.name + "| " + self.academic_level
 
 
 class Course(models.Model):
@@ -39,12 +39,14 @@ class Course(models.Model):
     def __str__(self):
         return self.name
 
+class File(models.Model):
+    path = models.FilePathField(path='/')
 
 class Outcomes(models.Model):
     name = models.CharField(max_length=500)
 
 class Document(models.Model):
-    FORMAT_CHOICES = [("дневной", "Дневной"), ("вечерний", "Вечерний")]
+    FORMAT_CHOICES = [("noontime", "Noontime"), ("evening", "Evening")]
     LECTURE_CHOICES = [
         ("physical science", "Physical Science"),
         ("chemical science", "Chemical Science"),
@@ -52,6 +54,7 @@ class Document(models.Model):
         ("geological science", "Geological Science"),
         ("math", "Math"),
         ("computer science", "Computer Science"),
+        ("Bussiness", "Bussiness"),
     ]
 
     LAB_CHOICES = [
