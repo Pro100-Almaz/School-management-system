@@ -3,7 +3,7 @@
 
 {% block title %}
 
-  Add new document
+  Add new Instructor
 
 {% endblock title %}
 
@@ -22,12 +22,12 @@
   
   {{ form }}
 
-  <input type="hidden" name="form_name" value="Document">
+  <input type="hidden" name="form_name" value="Instructor">
 
   {% if object %}
-    <input type="submit" class="btn btn-primary" value="Update Record">
+    <input type="submit" class="btn btn-primary" value="Update Instructor Info">
   {% else %}
-    <input type="submit" class="btn btn-primary" value="Add new document">
+    <input type="submit" class="btn btn-primary" value="Add new Instructor">
   {% endif %}
 </form>
 

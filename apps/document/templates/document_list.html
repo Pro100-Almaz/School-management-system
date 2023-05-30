@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Рабочая программа{% endblock title %}
+
+{% block breadcrumb %}
+<a class="btn btn-primary" href="{% url 'document_create' %}"><i
+    class="fas fa-plus"></i> Новый документ</a>
+<a class="btn btn-primary" href="{% url 'student-upload' %}"><i
+    class="fas fa-upload"></i> Загруженные документы</a>
+{% endblock breadcrumb %}
+
+{% block content %}
+  <div class="table-responsive">
+    <table id="studenttable" class="table table-bordered table-hover" data-page-length='100'>
+      <thead class="thead-light">
+        <tr>
+          <th>№</th>
+          <th>Предмет</th>
+          <th>Формат</th>
+          <th>Преподователь</th>
+          <th>Описание</th>
+          <th>Дата зачисления</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for document in documents %}
+          <tr class='clickable-row'>
+            <td>{{ forloop.counter}}</td>
+            <td>{{ document.course_name}}</td>
+            <td>{{ document.education_format}}</td>
+            <td>{{ document.instructors}}</td>
+            <td>{{ document.description}}</td>
+            <td>{{ document.year_enrollment}}</td>
+          </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}
+
+
+{% block morejs %}
+<script>
+  $('#studenttable').DataTable({
+  });
+</script>
+
+{% endblock morejs %}
